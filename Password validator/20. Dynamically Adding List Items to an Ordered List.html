@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add List Items</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  p {
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<h2>What you'll learn:</h2>
+<ul id="listItems"></ul>
+<button id="addButton">Add Item</button>
+<p id="message"></p>
+
+<script>
+// Pre-existing array of list items
+const listItemsArray = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Node.js",
+  "MongoDB",
+  "Express.js"
+];
+
+// Get references to HTML elements
+const listItemsElement = document.getElementById("listItems");
+const addButton = document.getElementById("addButton");
+const messageElement = document.getElementById("message");
+
+// Initialize index to keep track of the current list item
+let currentIndex = 0;
+
+// Function to add a new list item
+function addListItem() {
+  if (currentIndex < listItemsArray.length) {
+    const newItem = document.createElement("li");
+    newItem.textContent = listItemsArray[currentIndex];
+    listItemsElement.appendChild(newItem);
+    currentIndex++;
+  } else {
+    messageElement.textContent = "All items have been added.";
+  }
+}
+
+// Add event listener to the button
+addButton.addEventListener("click", addListItem);
+</script>
+
+</body>
+</html>
